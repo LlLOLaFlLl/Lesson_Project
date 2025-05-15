@@ -1,0 +1,149 @@
+@import "@/assets/scss/vars/grid";
+@import "@/assets/scss/vars/colors";
+@import "@/assets/scss/vars/typography";
+@import "@/assets/scss/vars/animations";
+
+@import "@/assets/scss/mixins/breakpoints";
+@import "@/assets/scss/mixins/typography";
+@import "@/assets/scss/mixins/rem";
+@import "@/assets/scss/mixins/helpers";
+
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  margin: rem(40) auto;
+  width: 90%;
+  gap: rem(40);
+
+  &__left,
+  &__right {
+    flex: 1;
+  }
+
+  &__heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(16);
+    gap: rem(20);
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: rem(24);
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__calendar-btn {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    background: none;
+    border: 1px solid #ccc;
+    padding: rem(10) rem(16);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-size: rem(16);
+    line-height: 1.5;
+    margin-bottom: rem(8);
+  }
+
+  &__more {
+    display: inline-block;
+    color: $color-concert;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__actions {
+    display: flex;
+    gap: rem(40);
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__go-btn {
+    background-color: #eee;
+    border: none;
+    padding: rem(20) rem(30);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  &__counter {
+    font-weight: bold;
+  }
+
+  &__call-btn {
+    padding: rem(20) rem(30);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+
+    &--concert {
+      background-color: $color-concert;
+    }
+    &--cinema {
+      background-color: $color-cinema;
+    }
+    &--theatre {
+      background-color: $color-theatre;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .event-info {
+      flex-direction: row;
+
+      &__actions {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: rem(10);
+
+        .event-info__go-btn,
+        .event-info__counter,
+        .event-info__call-btn {
+          width: 50%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .event-info {
+      flex-direction: column;
+
+      &__left {
+        order: 1;
+      }
+
+      &__right {
+        order: 2;
+        margin-top: rem(24);
+      }
+
+      &__actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: rem(10);
+
+        .event-info__go-btn,
+        .event-info__call-btn {
+          width: 100%;
+        }
+
+        .event-info__counter {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

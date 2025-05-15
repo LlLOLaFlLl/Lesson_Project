@@ -1,0 +1,107 @@
+@import "@/assets/scss/vars/grid";
+@import "@/assets/scss/vars/colors";
+@import "@/assets/scss/vars/typography";
+@import "@/assets/scss/vars/animations";
+
+@import "@/assets/scss/mixins/breakpoints";
+@import "@/assets/scss/mixins/typography";
+@import "@/assets/scss/mixins/rem";
+@import "@/assets/scss/mixins/helpers";
+.concert-gallery {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2rem;
+
+  .gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .gallery-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .gallery-controls {
+      display: flex;
+      gap: 0.5rem;
+
+      .gallery-button {
+        background-color: transparent;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0.3rem 0.7rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+
+  .gallery-images {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+    .gallery-image {
+      width: 48%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+
+  .gallery-tags {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    .gallery-tag {
+      background-color: #f5f5f5;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #333;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .gallery-images {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+
+      .gallery-image {
+        flex: 0 0 auto;
+        width: 48%;
+        scroll-snap-align: start;
+      }
+    }
+  }
+
+  // Адаптация мобилок
+  @media (max-width: 768px) {
+    .gallery-header {
+      .gallery-controls {
+        display: none;
+      }
+    }
+
+    .gallery-images {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+
+      .gallery-image {
+        flex: 0 0 auto;
+        width: 85%;
+        scroll-snap-align: start;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@import "@/assets/scss/vars/grid";
+@import "@/assets/scss/vars/colors";
+@import "@/assets/scss/vars/typography";
+@import "@/assets/scss/vars/animations";
+
+@import "@/assets/scss/mixins/breakpoints";
+@import "@/assets/scss/mixins/typography";
+@import "@/assets/scss/mixins/rem";
+@import "@/assets/scss/mixins/helpers";
+.restaurants-section {
+  padding: 2rem 1rem;
+  background: #f9f9f9;
+
+  .restaurants-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+
+    .restaurants-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .restaurants-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .view-all {
+        color: #007bff;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+
+      .nav-btn {
+        background: none;
+        border: 1px solid #ccc;
+        font-size: 1.2rem;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        line-height: 1;
+        transition: 0.2s;
+
+        &:hover:not(:disabled) {
+          background: #eee;
+        }
+
+        &:disabled {
+          opacity: 0.4;
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  .restaurants-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .restaurant-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: rem(8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &__image {
+      width: 100%;
+      height: rem(200);
+      object-fit: cover;
+    }
+
+    &__info {
+      background: white;
+      padding: rem(12);
+    }
+
+    &__name {
+      font-size: rem(16);
+      font-weight: bold;
+      margin-bottom: rem(4);
+    }
+
+    &__type {
+      font-size: rem(14);
+      color: #666;
+    }
+
+    &__details {
+      font-size: rem(14);
+      color: #666;
+      margin-top: rem(6);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+//GENERAL
+$color-white: #ffffff;
+$color-black: #000000;
+$color-yellow: #FFD07B; 
+$color-sylver: #F5F5F6; 
+$color-red: #FF645A;
+
+//BUTTON_COLOR
+$color-cinema: #F6456E;
+$color-concert: #6450FB;
+$color-theatre: #F68545;
+$color-festival: #00C0B8;
+$color-excursion: #8CCE00;
+$color-event: #8606C2;
+$color-conference: #E028C3;
+$color-exhibition: #3F8BFD;
+
+//OTHER_COLOR
+$primary: $color-black;
+$text-primary: $color-black;
+$text-secondary: $color-black;
+
+$colors: (
+  'white': $color-white,
+  'black': $color-black,
+  'yellow': $color-yellow,
+  'sylver': $color-sylver,
+  'red': $color-red,
+  'cinema': $color-cinema,
+  'concert': $color-concert,
+  'theatre': $color-theatre,
+  'festival': $color-festival,
+  'excursion': $color-excursion,
+  'event': $color-event,
+  'conference': $color-conference,
+  'exhibition': $color-exhibition
+);

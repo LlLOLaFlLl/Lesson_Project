@@ -1,0 +1,215 @@
+@import "@/assets/scss/vars/grid";
+@import "@/assets/scss/vars/colors";
+@import "@/assets/scss/vars/typography";
+@import "@/assets/scss/vars/animations";
+
+@import "@/assets/scss/mixins/breakpoints";
+@import "@/assets/scss/mixins/typography";
+@import "@/assets/scss/mixins/rem";
+@import "@/assets/scss/mixins/helpers";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &__wrapper {
+    width: 100%;
+    background-color: $color-white;
+    padding: rem(1) 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &__container {
+    max-width: rem(1440);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 rem(20);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(80);
+
+    @include media-breakpoint-down(sm) {
+      gap: rem(20);
+    }
+  }
+
+  &__logo {
+    @include h6;
+    font-weight: 700;
+    color: $primary;
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  &__dot {
+    width: rem(8);
+    height: rem(8);
+    border-radius: 50%;
+    background-color: $color-yellow;
+  }
+
+  &__nav {
+    @include media-breakpoint-down(sm) {
+      .header__nav,
+      .header__city-selector {
+        display: none !important;
+      }
+
+      .header__actions {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: rem(20);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu-item {
+    position: relative;
+  }
+
+  &__link {
+    @include text-default;
+    color: $text-primary;
+    text-decoration: none;
+    padding: rem(8) 0;
+    position: relative;
+    @include defaultTransition(color);
+
+    &:hover {
+      color: $primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-yellow;
+        animation: underline 0.3s ease-out;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    margin-left: auto;
+    padding-right: rem(16);
+  }
+
+  &__action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: rem(8);
+    border-radius: 50%;
+    @include defaultTransition(background-color);
+
+    &:hover {
+      background-color: $color-sylver;
+    }
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+    fill: black;
+  }
+}
+
+.city-selector {
+  position: relative;
+  min-width: rem(120);
+
+  &__current {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    background: none;
+    border: none;
+    cursor: pointer;
+    @include text-default;
+    color: $color-black;
+    padding: rem(8) 0;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__icon {
+    width: rem(16);
+    height: rem(16);
+    fill: currentColor;
+    transition: transform 0.3s $easing;
+
+    .city-selector__current:hover & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: rem(130);
+    background: $color-white;
+    color: $color-black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: rem(8);
+    padding: rem(8) 0;
+    margin: rem(8) 0 0;
+    list-style: none;
+    z-index: 100;
+  }
+
+  &__item {
+    padding: rem(8) rem(16);
+    cursor: pointer;
+    @include defaultTransition(background-color);
+
+    &:hover {
+      background-color: $color-sylver;
+    }
+  }
+}
+
+@keyframes underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// Адаптивность
+@include media-breakpoint-down(md) {
+  .header__nav {
+    display: none !important;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .city-selector {
+    display: none !important;
+  }
+}

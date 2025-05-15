@@ -1,0 +1,38 @@
+@import "@/assets/scss/vars/colors";
+@import "@/assets/scss/mixins/rem";
+.contact-banner {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin: rem(-175) auto rem(40); 
+
+  &__image {
+    width: 90%;
+    height: rem(600);
+    background-image: url("@/assets/images/banners/contacts-banner.jpg"); 
+    background-size: cover;
+    background-position: center;
+    //   border-radius: 12px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__content {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 30px 20px;
+    width: 100%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  &__breadcrumbs {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+}

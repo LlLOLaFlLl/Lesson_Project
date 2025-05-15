@@ -1,0 +1,38 @@
+.concert-description {
+  margin: 3rem auto 2rem;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+
+  .description-container {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    width: 67%;
+
+    .description-text {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      &.collapsed {
+        -webkit-line-clamp: 8;
+      }
+    }
+
+    .read-more {
+      margin-top: 1rem;
+      background: none;
+      border: none;
+      color: #6450fb;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

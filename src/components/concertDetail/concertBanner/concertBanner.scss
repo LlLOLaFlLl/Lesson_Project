@@ -1,0 +1,182 @@
+@import "@/assets/scss/vars/colors";
+@import "@/assets/scss/mixins/rem";
+
+.concert-banner {
+  position: relative;
+  height: rem(600);
+  background-size: cover;
+  background-position: center 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 90%;
+  margin: rem(-185) auto rem(40);
+  overflow: hidden;
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem(40);
+    height: rem(20);
+    background: white;
+    border-radius: 0 0 rem(20) rem(20);
+    z-index: 10;
+  }
+
+  &::before {
+    top: 0;
+    border-radius: 0 0 rem(20) rem(20);
+  }
+
+  &::after {
+    bottom: 0;
+    border-radius: rem(20) rem(20) 0 0;
+  }
+
+  &__overlay {
+    flex: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);
+    padding: rem(40);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    flex-wrap: wrap;
+  }
+
+  &__left {
+    max-width: 60%;
+  }
+
+  &__category {
+    font-size: rem(14);
+    opacity: 0.8;
+  }
+
+  &__title {
+    font-size: rem(46);
+    font-weight: bold;
+    line-height: 1.3;
+    margin: rem(12) 0;
+  }
+
+  &__location {
+    font-size: rem(20);
+    opacity: 0.9;
+  }
+
+  &__right {
+    text-align: right;
+    font-size: rem(14);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: rem(4);
+  }
+
+  &__info {
+    background-color: $color-concert;
+    padding: rem(24) rem(32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #fff;
+    font-weight: 500;
+    font-size: rem(20);
+    position: relative;
+    z-index: 2; 
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    flex-wrap: wrap;
+
+    .concert-banner__detail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      small {
+        font-size: rem(12);
+        opacity: 0.8;
+      }
+    }
+
+    .concert-banner__divider {
+      width: 1px;
+      height: rem(24);
+      background-color: white;
+      opacity: 0.5;
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+
+    .concert-banner__price {
+      font-size: rem(16);
+      order: 1;
+    }
+
+    .concert-banner__button {
+      order: 2;
+    }
+  }
+
+  &__button {
+    background: #f8c471;
+    color: black;
+    padding: rem(12) rem(24);
+    border: none;
+    border-radius: rem(4);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: darken(#f8c471, 5%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__info {
+      flex-direction: column;
+      align-items: stretch;
+      gap: rem(20);
+    }
+
+    &__details {
+      justify-content: center;
+    }
+
+    &__action {
+      flex-direction: column;
+      align-items: center;
+
+      .concert-banner__price {
+        order: 2;
+      }
+
+      .concert-banner__button {
+        order: 1;
+        width: 100%;
+      }
+    }
+  }
+}

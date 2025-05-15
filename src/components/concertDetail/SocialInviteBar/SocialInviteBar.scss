@@ -1,0 +1,120 @@
+@import "@/assets/scss/vars/colors.scss";
+
+.social-bar {
+  background-color: map-get($colors, sylver);
+  padding: 2rem 1rem;
+
+  .social-bar__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .social-bar__text {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .social-bar__btn {
+    padding: 0.9rem 1.7rem;
+    font-size: 1rem;
+
+    &--light {
+      background: white;
+      color: black;
+    }
+  }
+
+  .bg--concert {
+    background-color: map-get($colors, concert);
+    color: white;
+  }
+
+  .avatars {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: relative;
+      left: -35px;
+      z-index: 1;
+    }
+
+    .count {
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+  .social-icons {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.8rem;
+
+    a {
+      color: #444;
+      transition: color 0.2s;
+      &:hover {
+        color: map-get($colors, concert);
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .social-bar__content {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .social-icons {
+        margin-left: 0;
+        order: 5;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .social-bar__content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+
+      .social-bar__text,
+      .social-bar__btn,
+      .avatars,
+      .social-icons {
+        margin: 0;
+      }
+
+      .avatars {
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .social-icons {
+        justify-content: center;
+        font-size: 2rem;
+      }
+    }
+  }
+}
